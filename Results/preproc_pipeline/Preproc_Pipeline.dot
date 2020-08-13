@@ -1,0 +1,25 @@
+strict digraph  {
+"infosource (utility)";
+"selectfiles (io)";
+"ROI_Time_Extraction (utility)";
+"datasink (io)";
+"Tmp_File_Rmv (utility)";
+Structural;
+Functional;
+Denoising;
+"infosource (utility)" -> "selectfiles (io)";
+"infosource (utility)" -> "ROI_Time_Extraction (utility)";
+"infosource (utility)" -> "datasink (io)";
+"infosource (utility)" -> "Tmp_File_Rmv (utility)";
+"selectfiles (io)" -> Structural;
+"selectfiles (io)" -> Functional;
+"ROI_Time_Extraction (utility)" -> "Tmp_File_Rmv (utility)";
+"datasink (io)" -> "Tmp_File_Rmv (utility)";
+Structural -> Functional;
+Structural -> Denoising;
+Structural -> "datasink (io)";
+Functional -> Denoising;
+Functional -> "datasink (io)";
+Denoising -> "ROI_Time_Extraction (utility)";
+Denoising -> "datasink (io)";
+}
